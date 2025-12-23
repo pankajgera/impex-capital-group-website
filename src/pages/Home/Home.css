@@ -27,10 +27,24 @@ body {
   line-height: 1.6;
 }
 
+.sector-content h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.sector-content p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-gold);
+}
+
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
 }
+
 
 a {
   text-decoration: none;
@@ -137,6 +151,7 @@ img {
 }
 
 .stat-label {
+  display: block;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -203,19 +218,35 @@ img {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-color);
   padding: 3rem 2rem;
-  text-align: left;
+  /* text-align: left; */
   transition: var(--transition);
 }
 
 .strategy-card:hover {
   border-color: var(--text-gold);
   transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .strategy-icon {
-  font-size: 2rem;
+  font-size: 2.6rem;
   color: var(--text-gold);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.strategy-card h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--text-white);
+  font-family: 'Playfair Display', serif;
+}
+
+.strategy-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-grey);
 }
 
 /* =========================
@@ -238,6 +269,7 @@ img {
   height: 100%;
   background-size: cover;
   transition: transform 0.8s ease;
+  background-position: center;
   filter: grayscale(100%) brightness(0.7);
 }
 
@@ -265,6 +297,44 @@ img {
 .investors-visual,
 .investors-content {
   width: 50%;
+  padding: 6rem 5%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid var(--border-color);
+
+}
+
+.investors-content h2{
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  color: var(--text-white);
+  text-transform: uppercase;
+}
+
+.investors-content p{
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--text-grey);
+  max-width: 600px;
+}
+
+.btn-outline{
+  display: inline-block;
+  width: fit-content;
+  padding: 1rem 3rem;
+  border: 1px solid var(--text-white);
+  color: var(--text-white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.btn-outline:hover{
+  background: var(--text-gold);
+  border-color: var(--text-gold);
+  color: #000;
 }
 
 .inv-img {
@@ -277,14 +347,27 @@ img {
    MAP
 ========================= */
 .map-section {
+  background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
   padding: 8rem 5%;
+  position: relative;
   text-align: center;
+  overflow: hidden;
 }
 
 .map-container {
   max-width: 1000px;
   margin: 4rem auto 0;
   position: relative;
+  min-height: 500px;
+  aspect-ratio: 16 / 9;
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(1) brightness(2) opacity(0.2);
+  pointer-events: none;
 }
 
 .beacon {
@@ -293,7 +376,100 @@ img {
   height: 6px;
   background: var(--text-gold);
   border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
   animation: pulse 2s infinite;
+  cursor: pointer;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+}
+
+.beacon::after {
+  content: attr(data-loc);
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: var(--text-gold);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid var(--text-gold);
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.beacon:hover::after {
+  opacity: 1;
+  bottom: 30px;
+}
+
+.beacon:hover {
+  transform: translate(-50%, -50%) scale(1.8);
+  background: #f0d070;
+}
+
+/* Map location coordinates */
+.b-arlington { top: 64%; left: 47.5%; }
+.b-austin { top: 69%; left: 46.5%; }
+.b-cedar-park { top: 68.5%; left: 46.3%; }
+.b-dallas { top: 63.5%; left: 47.8%; }
+.b-forney { top: 64.5%; left: 48.2%; }
+.b-frisco { top: 62.8%; left: 47.2%; }
+.b-galveston { top: 74.5%; left: 49.5%; }
+.b-georgetown { top: 67.8%; left: 46.2%; }
+.b-houston { top: 71.5%; left: 49.2%; }
+.b-katy { top: 71.8%; left: 48.5%; }
+.b-magnolia { top: 71.2%; left: 48.3%; }
+.b-mesquite { top: 64.8%; left: 48.5%; }
+.b-mont-belvieu { top: 71.6%; left: 49.4%; }
+.b-pasadena { top: 72.2%; left: 49.3%; }
+.b-porter { top: 71%; left: 49%; }
+.b-san-antonio { top: 72.8%; left: 45.2%; }
+.b-san-marcos { top: 70.8%; left: 46.3%; }
+.b-stanton { top: 65.5%; left: 44.5%; }
+.b-texas-city { top: 73.8%; left: 49.4%; }
+.b-tomball { top: 71.3%; left: 48.2%; }
+.b-travis-county { top: 68.8%; left: 46.4%; }
+
+.b-denver { top: 42%; left: 35%; }
+.b-fort-collins { top: 40%; left: 34%; }
+.b-parker { top: 42%; left: 35%; }
+
+.b-los-angeles { top: 52%; left: 8%; }
+.b-el-dorado-hills { top: 40%; left: 7%; }
+
+.b-charlotte { top: 58%; left: 72%; }
+.b-macon { top: 63%; left: 70%; }
+.b-columbus { top: 50%; left: 68%; }
+.b-covington { top: 68%; left: 52%; }
+.b-kansas-city { top: 52%; left: 50%; }
+.b-n-ogden { top: 38%; left: 25%; }
+.b-oklahoma-city { top: 60%; left: 45%; }
+.b-philadelphia { top: 48%; left: 75%; }
+.b-spartanburg { top: 60%; left: 72%; }
+.b-fort-lauderdale { top: 82%; left: 78%; }
+.b-washington-dc { top: 52%; left: 74%; }
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
 }
 
 /* =========================
@@ -302,6 +478,13 @@ img {
 .news-section {
   padding: 8rem 10%;
   background: var(--bg-panel);
+  color: var(--text-white);
+}
+
+.news-header h2 {
+  color: var(--text-white);
+  font-size: 3rem;
+  margin-bottom: 4rem;
 }
 
 .news-grid {
@@ -312,11 +495,61 @@ img {
 
 .news-card {
   background: var(--bg-card);
+  padding: 0;
   transition: var(--transition);
 }
 
 .news-card:hover {
   transform: translateY(-5px);
+}
+
+.news-img-wrapper {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.news-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  opacity: 0.8;
+}
+
+.news-card:hover .news-img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.news-content {
+  padding: 1.5rem;
+}
+
+.news-meta {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-gold);
+  margin-bottom: 0.8rem;
+}
+
+.news-card h3 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-white);
+}
+
+.read-btn {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--text-white);
+  padding-bottom: 3px;
+  color: var(--text-white);
 }
 
 /* =========================

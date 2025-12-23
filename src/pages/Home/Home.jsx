@@ -152,6 +152,34 @@ const Home = () => {
               <p>Strategic Development Opportunities</p>
             </div>
           </Link>
+
+          <Link to="/retail-mixed-use" className="sector-item clickable">
+            <div
+              className="sector-bg"
+              style={{
+                backgroundImage:
+                  "url(https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&q=80)",
+              }}
+            />
+            <div className="sector-content">
+              <h3>Exited Portfolio</h3>
+              <p>Successfully Realized Investments</p>
+            </div>
+          </Link>
+
+          <Link to="/commercial" className="sector-item clickable">
+            <div
+              className="sector-bg"
+              style={{
+                backgroundImage:
+                  "url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80)",
+              }}
+            />
+            <div className="sector-content">
+              <h3>Hotel</h3>
+              <p>Hospitality Assets in Prime Locations</p>
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -165,8 +193,16 @@ const Home = () => {
         <div className="investors-content">
           <h2>Investors</h2>
           <p>
-            Impex Capital Group has a demonstrated track record of transparency
-            and alignment of interests.
+            Impex Capital Group has a demonstrated track record of its
+            commitment to its investors, partners, and lenders. Over our 20+
+            years of development and acquisition, we have maintained a
+            philosophy of transparency and alignment of interests.
+          </p>
+          <p>
+            We take a disciplined approach to each opportunity, focusing on a
+            combination of conservative leverage and strict underwriting. This
+            self-discipline has allowed us to maintain performance across market
+            cycles.
           </p>
           <Link to="/investors" className="btn-outline">
             Investor Portal
@@ -174,22 +210,132 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ===== MAP SECTION ===== */}
+      <section className="map-section reveal">
+        <div className="section-header">
+          <h2>Our Property Locations</h2>
+          <p>15+ States Represented | Strategic Portfolio Across US Markets</p>
+        </div>
+        <div className="map-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Blank_US_Map_%28states_only%29.svg"
+            className="map-image"
+            alt="USA Map"
+          />
+
+          {/* Texas Locations */}
+          <div className="beacon b-arlington" data-loc="Arlington, TX" />
+          <div className="beacon b-austin" data-loc="Austin, TX" />
+          <div className="beacon b-cedar-park" data-loc="Cedar Park, TX" />
+          <div className="beacon b-dallas" data-loc="Dallas, TX" />
+          <div className="beacon b-forney" data-loc="Forney, TX" />
+          <div className="beacon b-frisco" data-loc="Frisco, TX" />
+          <div className="beacon b-galveston" data-loc="Galveston, TX" />
+          <div className="beacon b-georgetown" data-loc="Georgetown, TX" />
+          <div className="beacon b-houston" data-loc="Houston, TX" />
+          <div className="beacon b-katy" data-loc="Katy, TX" />
+          <div className="beacon b-magnolia" data-loc="Magnolia, TX" />
+          <div className="beacon b-mesquite" data-loc="Mesquite, TX" />
+          <div className="beacon b-mont-belvieu" data-loc="Mont Belvieu, TX" />
+          <div className="beacon b-pasadena" data-loc="Pasadena, TX" />
+          <div className="beacon b-porter" data-loc="Porter, TX" />
+          <div className="beacon b-san-antonio" data-loc="San Antonio, TX" />
+          <div className="beacon b-san-marcos" data-loc="San Marcos, TX" />
+          <div className="beacon b-stanton" data-loc="Stanton, TX" />
+          <div className="beacon b-texas-city" data-loc="Texas City, TX" />
+          <div className="beacon b-tomball" data-loc="Tomball, TX" />
+          <div
+            className="beacon b-travis-county"
+            data-loc="Travis County, TX"
+          />
+
+          {/* Colorado Locations */}
+          <div className="beacon b-denver" data-loc="Denver, CO" />
+          <div className="beacon b-fort-collins" data-loc="Fort Collins, CO" />
+          <div className="beacon b-parker" data-loc="Parker, CO" />
+
+          {/* California Locations */}
+          <div className="beacon b-los-angeles" data-loc="Los Angeles, CA" />
+          <div
+            className="beacon b-el-dorado-hills"
+            data-loc="El Dorado Hills, CA"
+          />
+
+          {/* Other States */}
+          <div className="beacon b-charlotte" data-loc="Charlotte, NC" />
+          <div className="beacon b-macon" data-loc="Macon, GA" />
+          <div className="beacon b-columbus" data-loc="Columbus, OH" />
+          <div className="beacon b-covington" data-loc="Covington, LA" />
+          <div className="beacon b-kansas-city" data-loc="Kansas City, MO" />
+          <div className="beacon b-n-ogden" data-loc="N. Ogden, UT" />
+          <div
+            className="beacon b-oklahoma-city"
+            data-loc="Oklahoma City, OK"
+          />
+          <div
+            className="beacon b-philadelphia"
+            data-loc="Philadelphia, PA"
+          />
+          <div
+            className="beacon b-spartanburg"
+            data-loc="Spartanburg, SC"
+          />
+          <div
+            className="beacon b-fort-lauderdale"
+            data-loc="Fort Lauderdale, FL"
+          />
+          <div
+            className="beacon b-washington-dc"
+            data-loc="Washington, DC"
+          />
+        </div>
+      </section>
+
       {/* ===== NEWS ===== */}
       <section className="news-section reveal">
+        <div className="news-header">
+          <h2>Latest News</h2>
+        </div>
         <div className="news-grid">
           <div className="news-card">
-            <img src={denverImg} className="news-img" alt="Denver" />
-            <Link to="/news" className="read-btn">Read Article</Link>
+            <div className="news-img-wrapper">
+              <img src={denverImg} className="news-img" alt="News Denver" />
+            </div>
+            <div className="news-content">
+              <div className="news-meta">Nov 2024</div>
+              <h3>
+                Expansion Into Colorado: ICG Acquires Premium Multifamily Asset
+              </h3>
+              <Link to="/news" className="read-btn">
+                Read Article
+              </Link>
+            </div>
           </div>
 
           <div className="news-card">
-            <img src={ivfundImg} className="news-img" alt="Fund IV" />
-            <Link to="/news" className="read-btn">Read Article</Link>
+            <div className="news-img-wrapper">
+              <img src={ivfundImg} className="news-img" alt="News Fund IV" />
+            </div>
+            <div className="news-content">
+              <div className="news-meta">Oct 2024</div>
+              <h3>Impex Capital Group Closes Fund IV with $500M Raised</h3>
+              <Link to="/news" className="read-btn">
+                Read Article
+              </Link>
+            </div>
           </div>
 
           <div className="news-card">
-            <img src={houstonImg} className="news-img" alt="Houston" />
-            <Link to="/news" className="read-btn">Read Article</Link>
+            <div className="news-img-wrapper">
+              <img src={houstonImg} className="news-img" alt="News Houston" />
+            </div>
+            <div className="news-content">
+              <div className="news-meta">Sep 2024</div>
+              <h3>New Development Project Breaks Ground in Houston Metro</h3>
+              <Link to="/news" className="read-btn">
+                Read Article
+              </Link>
+            </div>
           </div>
         </div>
       </section>
