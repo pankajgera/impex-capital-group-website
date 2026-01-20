@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
-const Footer = () => {
+const Footer = ({ 
+  heading = "Ready To Invest In Commercial Real Estate?",
+  text = "Discover how we build wealth through strategic asset management."
+}) => {
   return (
     <footer>
       <div className="footer-cta reveal">
-        <h2>Ready To Invest In Commercial Real Estate?</h2>
+        <h2>{heading}</h2>
         <p className="footer-text">
-          Discover how we build wealth through strategic asset management.
+          {text}
         </p>
         <Link to="/contact" className="btn-gold-outline">
           Contact Our Team
