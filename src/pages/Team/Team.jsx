@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
 import "./Team.css";
 
@@ -7,7 +6,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 import ashShahImg from "../../assets/images/AshShah.png";
-import davidFloresImg from "../../assets/images/DavidFlores.png";
 import nishaSmithImg from "../../assets/images/NishaSmith.png";
 
 const Team = () => {
