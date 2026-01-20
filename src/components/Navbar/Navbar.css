@@ -128,7 +128,7 @@
     background: none;
     border: none;
     font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 5vw, 5rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     color: #a0a0a0;
     cursor: pointer;
     transform: translateY(100%);
