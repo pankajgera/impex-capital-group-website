@@ -5,6 +5,7 @@ import Team from "../pages/Team/Team";
 import Contact from "../pages/Contact/Contact";
 import News from "../pages/News/News";
 import Investors from "../pages/Investors/Investors";
+import Multifamily from "../pages/Multifamily/Multifamily";
 
 const AppRoutes = () => {
     return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
                 <Route path="/investors" element={<Investors />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/multifamily" element={<Multifamily />} />
             </Routes>
     );
 };
