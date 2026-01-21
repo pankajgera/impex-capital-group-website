@@ -142,7 +142,7 @@ const Home = () => {
             </div>
           </Link>
 
-          <Link to="/senior-living" className="sector-item clickable">
+          <Link to="/land" className="sector-item clickable">
             <div
               className="sector-bg"
               style={{ backgroundImage: `url(${seniorLivingImg})` }}

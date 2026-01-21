@@ -119,7 +119,7 @@ const Multifamily = () => {
 
       {/* ===== UNIQUE HERO SECTION ===== */}
       <section 
-        className="service-hero"
+        className="multifamily-hero"
         style={{
           position: 'relative',
         }}

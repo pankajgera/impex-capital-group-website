@@ -9,83 +9,63 @@
   --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Unique Hero Section for Multifamily */
-.multifamily-hero {
+/* Unique Hero Section for Land - Split Layout */
+.service-hero {
   height: 100vh;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
   margin-top: 0;
 }
 
-/* Background image is handled inline in JSX */
-.service-hero-bg {
-  /* Background image set inline via React */
+.hero-image-side {
+  position: relative;
+  overflow: hidden;
 }
 
-.multifamily-hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 30% 50%, rgba(212,175,55,0.2) 0%, transparent 60%);
-  z-index: 2;
-}
-
-.multifamily-hero .service-hero-content {
+.hero-content-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+  background: linear-gradient(135deg, rgba(5, 5, 5, 0.98) 0%, rgba(20, 20, 20, 0.95) 100%);
   position: relative;
   z-index: 3;
-  text-align: center;
-  max-width: 1000px;
-  padding: 0 5%;
-  animation: fadeInUp 1s ease-out;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.multifamily-hero h1 {
-  font-size: clamp(3.5rem, 8vw, 7rem);
+.service-hero-content {
+  max-width: 600px;
+  animation: fadeInLeft 1s ease-out;
+}
+
+.service-hero h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
   color: white;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  text-shadow: 0 10px 40px rgba(0,0,0,0.8);
   font-weight: 700;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   font-family: 'Playfair Display', serif;
-  text-align: center;
-  width: 100%;
 }
 
-.multifamily-hero .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  letter-spacing: 6px;
+.service-hero .hero-subtitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--text-gold);
   margin-bottom: 2rem;
   display: block;
   font-weight: 600;
   text-align: center;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.multifamily-hero .hero-description {
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+.service-hero .hero-description {
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
   color: var(--text-grey);
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.8;
-  text-align: center;
-  width: 100%;
+  line-height: 1.9;
+  margin-bottom: 3rem;
 }
 
 .back-btn {
@@ -164,7 +144,7 @@
   letter-spacing: 1px;
 }
 
-/* Key Features Section - Elegant Design with Dashed Lines */
+/* Key Features Section - Elegant Design */
 .key-features-section {
   max-width: 1400px;
   margin: 6rem auto;
@@ -328,14 +308,14 @@
   }
 }
 
-@keyframes fadeInUp {
+@keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateX(-30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
@@ -498,6 +478,16 @@
 
 /* Mobile Responsive */
 @media (max-width: 1024px) {
+  .service-hero {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .hero-image-side {
+    height: 50vh;
+  }
+
   .key-features-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -505,10 +495,6 @@
 }
 
 @media (max-width: 768px) {
-  .service-hero {
-    height: 80vh;
-  }
-
   .dynamic-stats {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
@@ -522,6 +508,10 @@
   .property-card {
     height: 350px;
   }
+
+  .key-features-grid {
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -531,10 +521,6 @@
 
   .properties-grid {
     grid-template-columns: 1fr;
-  }
-
-  .key-features-grid {
-    gap: 2rem;
   }
 }
 
