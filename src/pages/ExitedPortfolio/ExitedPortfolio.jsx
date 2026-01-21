@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./ExitedPortfolio.css";
@@ -7,6 +7,9 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 const ExitedPortfolio = () => {
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   /* Scroll Reveal Animation */
   useEffect(() => {
     const reveal = () => {
@@ -23,7 +26,7 @@ const ExitedPortfolio = () => {
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
-  /* Navbar Scroll Effect - Glassmorphism on scroll */
+  /* Navbar Scroll Effect */
   useEffect(() => {
     const onScroll = () => {
       const navbar = document.querySelector(".navbar");
@@ -36,7 +39,7 @@ const ExitedPortfolio = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Investment Benefits Animation - Elegant scroll-triggered animations */
+  /* Investment Benefits Animation */
   useEffect(() => {
     const animateInvestmentBenefits = () => {
       const allSections = document.querySelectorAll(".info-section");
@@ -73,116 +76,28 @@ const ExitedPortfolio = () => {
     };
   }, []);
 
-  // Properties Data - Exited Portfolio items
-  const properties = [
-    {
-      name: "Toll Tag Plaza",
-      location: "Toll Tag Plaza",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/toll_plaza.jpg",
-    },
-    {
-      name: "Block at Montrose",
-      location: "Block at Montrose",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/montrose.jpeg",
-    },
-    {
-      name: "Casa Verde Apartments",
-      location: "Casa Verde Apartments",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/casa-vrdi.jpg",
-    },
-    {
-      name: "Crestdale",
-      location: "Crestdale",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/Crestdale.jpg",
-    },
-    {
-      name: "Dallas Office Grove",
-      location: "Dallas Office Grove",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/Hidden-Grove-Dallas-570x422-1.jpg",
-    },
-    {
-      name: "Pineforest Apartments",
-      location: "Pineforest Apartments",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/pineforest.jpg",
-    },
-    {
-      name: "San Remo Apartments",
-      location: "San Remo Apartments",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/san-remo.jpg",
-    },
-    {
-      name: "Village at Uvalde",
-      location: "Village at Uvalde",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/uvalde.jpg",
-    },
-    {
-      name: "Avalon at Royal Oaks",
-      location: "Avalon at Royal Oaks",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/avalon.jpg",
-    },
-    {
-      name: "Oaktree",
-      location: "Oaktree",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2021/02/WhatsApp-Image-2021-02-12-at-06.34.08.jpeg",
-    },
-    {
-      name: "Ventana Garden Apartments, Houston TX",
-      location: "Ventana Garden Apartments, Houston TX",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2021/05/20210419_161253.jpg",
-    },
-    {
-      name: "Lucciola Midtown, Houston, TX",
-      location: "Lucciola Midtown, Houston, TX",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2022/04/Lucciola-Pic.jpg",
-    },
-    {
-      name: "Britmore Park Industrial, Houston, Texas",
-      location: "Britmore Park Industrial, Houston, Texas",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2023/09/LargeHighDefinition.jpg",
-    },
-    {
-      name: "Century Business Park, Houston, Texas",
-      location: "Century Business Park, Houston, Texas",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2023/09/CenturyPlaza1.jpg",
-    },
-    {
-      name: "Sueba MF Portfolio, Houston, TX",
-      location: "Sueba MF Portfolio, Houston, TX",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2024/04/SanTierra0344-scaled-1.jpg",
-    },
-    {
-      name: "Costa Mesa Houston, TX",
-      location: "Costa Mesa Houston, TX",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2020/12/costa.jpg",
-    },
-    {
-      name: "Lucciola at Midtwon Houston, TX",
-      location: "Lucciola at Midtwon Houston, TX",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2024/04/thimg_144053520_800x500.jpg",
-    },
-    {
-      name: "Springwood Apartments Houston, TX",
-      location: "Springwood Apartments Houston, TX",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2024/10/springwood.jpg",
-    },
-    {
-      name: "Ascension Starcrest – Oaks of Marymount",
-      location: "Ascension Starcrest – Oaks of Marymount",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2021/02/image-1.png",
-    },
-    {
-      name: "Ascension Starcrest RE",
-      location: "Ascension Starcrest RE",
-      image: "https://impexcapitalgroup.com/wp-content/uploads/2024/04/603abf542f793ed8ab3a3118f51e4337.webp",
-    },
-  ];
+  /* CMS DATA FETCH - Exited Only */
+  useEffect(() => {
+    fetch(
+      "https://impex-capital-strapi-production.up.railway.app/api/properties?filters[propertyStatus][$eq]=Exited&populate=*"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setProperties(data.data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching exited properties:", err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <>
       {/* ===== NAVBAR ===== */}
       <Navbar />
 
-      {/* ===== UNIQUE HERO SECTION - Full Width Image Background ===== */}
+      {/* ===== HERO ===== */}
       <section className="exited-hero">
         <div className="exited-hero-content">
           <span className="hero-subtitle">Successfully Realized Investments</span>
@@ -190,13 +105,11 @@ const ExitedPortfolio = () => {
           <p className="hero-description">
             A curated portfolio of destination assets across sectors, thoughtfully assembled to balance durable income with meaningful growth potential.
           </p>
-          <Link to="/" className="back-btn">
-            ← Back to Home
-          </Link>
+          <Link to="/" className="back-btn">← Back to Home</Link>
         </div>
       </section>
 
-      {/* ===== STATS SECTION ===== */}
+      {/* ===== STATS ===== */}
       <div className="dynamic-stats reveal">
         <div className="stat-box">
           <span className="stat-number">3</span>
@@ -212,7 +125,7 @@ const ExitedPortfolio = () => {
         </div>
       </div>
 
-      {/* ===== CONTENT DESCRIPTION ===== */}
+      {/* ===== DESCRIPTION ===== */}
       <div className="content-description reveal">
         <p>
           The Exited Portfolio spans multifamily, land, retail, hotel, and commercial assets that complement one another across geographies and cycles.
@@ -222,7 +135,7 @@ const ExitedPortfolio = () => {
         </p>
       </div>
 
-      {/* ===== KEY FEATURES SECTION ===== */}
+      {/* ===== FEATURES ===== */}
       <div className="key-features-section reveal">
         <h2 className="section-title">Key Features</h2>
         <div className="section-subtitle">What Sets Us Apart</div>
@@ -231,7 +144,7 @@ const ExitedPortfolio = () => {
             <div className="key-feature-icon">
               <i className="fas fa-layer-group"></i>
             </div>
-            <h3>Multi‑Sector Balance</h3>
+            <h3>Multi-Sector Balance</h3>
             <p>
               A deliberate blend of multifamily, land, hotel, retail, and commercial holdings designed to smooth volatility while capturing upside.
             </p>
@@ -251,13 +164,13 @@ const ExitedPortfolio = () => {
             </div>
             <h3>Geographic Diversification</h3>
             <p>
-              Exposure to multiple high‑growth U.S. markets, reducing concentration risk while targeting compelling local fundamentals.
+              Exposure to multiple high-growth U.S. markets, reducing concentration risk while targeting compelling local fundamentals.
             </p>
           </div>
         </div>
       </div>
 
-      {/* ===== BENEFITS SECTION ===== */}
+      {/* ===== BENEFITS ===== */}
       <div className="info-section reveal">
         <h2 className="section-title">Investment Benefits</h2>
         <div className="section-subtitle">Why Choose This Portfolio</div>
@@ -265,39 +178,51 @@ const ExitedPortfolio = () => {
           <div className="info-card">
             <h3>Diversified Cash Flows</h3>
             <p>
-              Income sourced from multiple asset types, tenancy structures, and markets, reducing reliance on any single property or cycle.
+              Income sourced from multiple asset types, tenancy structures, and markets.
             </p>
           </div>
           <div className="info-card">
             <h3>Embedded Growth</h3>
             <p>
-              Value‑add, development, and land positions provide a pipeline of future appreciation alongside current yield.
+              Value-add, development, and land positions provide future appreciation.
             </p>
           </div>
         </div>
       </div>
 
-      {/* ===== PROPERTIES SECTION ===== */}
+      {/* ===== PROPERTIES ===== */}
       <div className="properties-section reveal">
         <h2 className="properties-section-title">Exited Portfolio</h2>
         <div className="properties-section-subtitle">Explore Our Properties</div>
+
         <div className="properties-grid">
-          {properties.map((prop, index) => {
-            const imageUrl =
-              prop.image ||
-              "https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&q=80";
-            return (
-              <div key={index} className="property-card">
-                <div className="property-img-container">
-                  <img src={imageUrl} className="property-img" alt={prop.name} />
-                  <div className="property-overlay">
-                    <h3>{prop.name}</h3>
-                    <div className="property-location">{prop.location}</div>
+          {loading ? (
+            <p style={{ textAlign: "center" }}>Loading exited properties...</p>
+          ) : (
+            properties.map((prop) => {
+              const imageUrl = prop.image?.url
+                ? `https://impex-capital-strapi-production.up.railway.app${prop.image.url}`
+                : "https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&q=80";
+
+              return (
+                <div key={prop.id} className="property-card">
+                  <div className="property-img-container">
+                    <img
+                      src={imageUrl}
+                      className="property-img"
+                      alt={prop.title}
+                    />
+                    <div className="property-overlay">
+                      <h3>{prop.title}</h3>
+                      <div className="property-location">
+                        {prop.location}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
 
@@ -308,5 +233,3 @@ const ExitedPortfolio = () => {
 };
 
 export default ExitedPortfolio;
-
-
