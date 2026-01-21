@@ -7,6 +7,7 @@ import News from "../pages/News/News";
 import Investors from "../pages/Investors/Investors";
 import Multifamily from "../pages/Multifamily/Multifamily";
 import Land from "../pages/Land/Land";
+import Hotel from "../pages/Hotel/Hotel";
 
 const AppRoutes = () => {
     return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/multifamily" element={<Multifamily />} />
                 <Route path="/land" element={<Land />} />
+                <Route path="/commercial" element={<Hotel />} />
             </Routes>
     );
 };
