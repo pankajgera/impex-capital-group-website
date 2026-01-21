@@ -153,7 +153,7 @@ const Home = () => {
             </div>
           </Link>
 
-          <Link to="/retail-mixed-use" className="sector-item clickable">
+          <Link to="/exited-portfolio" className="sector-item clickable">
             <div
               className="sector-bg"
               style={{

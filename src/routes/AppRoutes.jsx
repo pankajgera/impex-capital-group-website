@@ -20,7 +20,7 @@ const AppRoutes = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/multifamily" element={<Multifamily />} />
                 <Route path="/land" element={<Land />} />
-                <Route path="/retail-mixed-use" element={<ExitedPortfolio />} />
+                <Route path="/exited-portfolio" element={<ExitedPortfolio />} />
                 <Route path="/commercial" element={<Hotel />} />
             </Routes>
     );
