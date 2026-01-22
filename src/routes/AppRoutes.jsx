@@ -9,12 +9,14 @@ import Multifamily from "../pages/Multifamily/Multifamily";
 import Land from "../pages/Land/Land";
 import Hotel from "../pages/Hotel/Hotel";
 import ExitedPortfolio from "../pages/ExitedPortfolio/ExitedPortfolio";
+import Portfolio from "../pages/Portfolio/Portfolio";
 
 const AppRoutes = () => {
     return (
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/team" element={<Team />} />
+                <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/investors" element={<Investors />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/contact" element={<Contact />} />

@@ -80,7 +80,7 @@ const Multifamily = () => {
   /* ONLY CHANGE: CMS DATA FETCH */
   useEffect(() => {
     fetch(
-      "https://impex-capital-strapi-production.up.railway.app/api/properties?filters[category][$eq]=Multifamily&populate=*"
+      "https://impex-capital-strapi-production.up.railway.app/api/properties?filters[category][$eq]=Multifamily&populate=*&pagination[pageSize]=100"
     )
       .then((res) => res.json())
       .then((data) => {
