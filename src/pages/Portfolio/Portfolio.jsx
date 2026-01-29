@@ -54,7 +54,7 @@ const Portfolio = () => {
         setPortfolioItems(formatted);
       })
       .catch((err) => console.error("CMS Fetch Error:", err));
-  }, [activeFilter]);
+  }, [activeFilter, filterCategories]);
 
   /* Scroll Reveal Animation */
   useEffect(() => {
