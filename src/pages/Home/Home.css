@@ -75,6 +75,7 @@ img {
 .hero {
   position: relative;
   height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +89,7 @@ img {
   min-width: 100%;
   min-height: 100%;
   object-fit: cover;
-  transform: translate(-50%, -50%) scale(0.50);
+  transform: translate(-50%, -50%) scale(0.40);
   z-index: -1;
   filter: brightness(0.4) contrast(1.1);
 }
