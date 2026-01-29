@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import "./Portfolio.css";
 
@@ -9,7 +9,7 @@ const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
   const [portfolioItems, setPortfolioItems] = useState([]);
 
-  const filterCategories = [
+  const filterCategories = useMemo(() => [
     { value: "all", label: "All" },
     { value: "affordable-housing", label: "Affordable Housing" },
     { value: "build-to-rent", label: "Build-To-Rent" },
@@ -23,7 +23,7 @@ const Portfolio = () => {
     { value: "office", label: "Office" },
     { value: "self-storage", label: "Self Storage" },
     { value: "senior-living", label: "Senior Living" },
-  ];
+  ], []);
 
   // ===== CMS DATA FETCH =====
   useEffect(() => {
