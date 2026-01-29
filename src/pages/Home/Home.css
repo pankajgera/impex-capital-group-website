@@ -87,7 +87,8 @@ img {
   left: 50%;
   min-width: 100%;
   min-height: 100%;
-  transform: translate(-50%, -50%);
+  object-fit: cover;
+  transform: translate(-50%, -50%) scale(0.50);
   z-index: -1;
   filter: brightness(0.4) contrast(1.1);
 }
