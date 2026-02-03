@@ -67,11 +67,11 @@ const Home = () => {
         </div>
         <div className="stat-item">
           <span className="stat-number">1,500+</span>
-          <span className="stat-label">New Developments</span>
+          <span className="stat-label">New Development & Build-to-Rent Units</span>
         </div>
         <div className="stat-item">
-          <span className="stat-number">600K</span>
-          <span className="stat-label">Sq. Ft. Commercial</span>
+          <span className="stat-number">600k</span>
+          <span className="stat-label">Sq. Ft. Industrial & Commercial Office</span>
         </div>
         <div className="stat-item">
           <span className="stat-number">$1.8B+</span>
@@ -119,10 +119,9 @@ const Home = () => {
 
           <div className="strategy-card">
             <i className="fas fa-chart-line strategy-icon" />
-            <h3>Operational Excellence</h3>
+            <h3>Capital & Execution Strength</h3>
             <p>
-              Vertically integrated management ensures that every property
-              operates at peak efficiency.
+              Deep relationships with lenders, partners, and operators allow us to structure, capitalize, and close complex transactions efficiently.
             </p>
           </div>
         </div>

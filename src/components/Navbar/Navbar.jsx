@@ -65,8 +65,7 @@ const Navbar = () => {
           <div className="menu-footer">
             <div>Houston, TX | investor_relations@impexcapitalgroup.com</div>
             <div className="menu-socials">
-              <a href="#!">LinkedIn</a>
-              <a href="#!">Twitter</a>
+              <a href="https://www.linkedin.com/company/impex-capital-group/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </div>

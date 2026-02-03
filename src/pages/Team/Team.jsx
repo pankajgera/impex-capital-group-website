@@ -134,6 +134,8 @@ const Team = () => {
                 <i className="fa-solid fa-arrow-right"></i>
               </button>
             </div>
+
+            <button className="btn-gold-outline">View More</button>
           </div>
 
           {/* Right: main image + thumbnails */}

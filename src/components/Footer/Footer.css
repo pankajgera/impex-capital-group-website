@@ -29,6 +29,7 @@ footer {
   padding: 1rem 3rem;
   border: 1px solid #d4af37;
   color: #d4af37;
+  background: transparent;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.9rem;
