@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import "./Contact.css";
 
@@ -6,15 +6,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    company: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-
   /* Scroll Reveal Animation */
   useEffect(() => {
     const reveal = () => {
@@ -31,53 +22,172 @@ const Contact = () => {
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  /* Form Submission Handler */
+  useEffect(() => {
+    const form = document.getElementById("vboutEmbedForm-182767");
+    const wrapper = document.getElementById("vboutEmbedFormWrapper-182767");
+    const responseBox = document.getElementById("vboutEmbedFormResponse-182767");
+  
+    if (!form || !responseBox) return;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    // Initialize phone field country selector to India (+91)
+    const initPhoneField = () => {
+      const phoneInput = form.querySelector('input[type="tel"][name="vbout_EmbedForm[field][631386]"]');
+      if (!phoneInput) return;
 
-    // Form validation
-    if (
-      !formData.firstName ||
-      !formData.lastName ||
-      !formData.company ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.message
-    ) {
-      alert("Please fill in all required fields.");
-      return;
-    }
+      // Set default value to +91 if empty
+      if (!phoneInput.value || phoneInput.value.trim() === '') {
+        phoneInput.value = '+91';
+      }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+      // Wait for VBOUT to initialize the country selector
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds max
+      
+      const checkCountrySelector = setInterval(() => {
+        attempts++;
+        const phoneRow = phoneInput.closest('.vboutEmbedFormRow');
+        if (!phoneRow) {
+          if (attempts >= maxAttempts) clearInterval(checkCountrySelector);
+          return;
+        }
 
-    // Here you would typically send the data to a server
-    console.log("Form submitted:", formData);
+        // Find country selector (could be select, div with class, etc.)
+        const countrySelect = phoneRow.querySelector('select, [class*="country"], [class*="flag"], [data-country], [class*="phone-country"]');
+        
+        if (countrySelect) {
+          clearInterval(checkCountrySelector);
+          
+          // Set to India (+91)
+          if (countrySelect.tagName === 'SELECT') {
+            // Try to find India option
+            const indiaOption = Array.from(countrySelect.options).find(opt => 
+              opt.value.toLowerCase() === 'in' || 
+              opt.value === '91' || 
+              opt.value === '+91' ||
+              opt.textContent.toLowerCase().includes('india') ||
+              opt.textContent.includes('+91') ||
+              opt.getAttribute('data-code') === '91'
+            );
+            if (indiaOption) {
+              countrySelect.value = indiaOption.value;
+              const changeEvent = new Event('change', { bubbles: true });
+              countrySelect.dispatchEvent(changeEvent);
+            }
+          } else {
+            // For div-based selectors, try to set data attributes
+            if (countrySelect.setAttribute) {
+              countrySelect.setAttribute('data-country', 'in');
+              countrySelect.setAttribute('data-code', '91');
+            }
+          }
+          
+          // Close any open dropdowns
+          const closeDropdowns = () => {
+            const openDropdowns = phoneRow.querySelectorAll('[class*="open"], [aria-expanded="true"], [class*="active"]');
+            openDropdowns.forEach(dd => {
+              if (dd !== countrySelect && !dd.contains(countrySelect)) {
+                dd.setAttribute('aria-expanded', 'false');
+                dd.classList.remove('open', 'active', 'show');
+                dd.style.display = '';
+              }
+            });
+          };
+          
+          closeDropdowns();
+          
+          // Close dropdown on click outside
+          const handleClickOutside = (e) => {
+            if (!phoneRow.contains(e.target)) {
+              closeDropdowns();
+            }
+          };
+          
+          document.addEventListener('click', handleClickOutside);
+          
+          // Also close on country selector click if it opens
+          if (countrySelect.addEventListener) {
+            countrySelect.addEventListener('click', (e) => {
+              setTimeout(closeDropdowns, 100);
+            });
+          }
+        } else if (attempts >= maxAttempts) {
+          clearInterval(checkCountrySelector);
+        }
+      }, 100);
+    };
 
-    // Show success message
-    alert("Thank you for your message! We will get back to you soon.");
-    
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      company: "",
-      email: "",
-      phone: "",
-      message: "",
+    // Initialize phone field after form loads (multiple attempts)
+    setTimeout(initPhoneField, 300);
+    setTimeout(initPhoneField, 1000);
+    setTimeout(initPhoneField, 2000);
+  
+    const clearErrors = () => {
+      form.querySelectorAll(".field-error-msg").forEach(el => {
+        el.textContent = "";
+      });
+      form.querySelectorAll("input, textarea").forEach(el => {
+        el.classList.remove("field-error");
+      });
+    };
+  
+    const observer = new MutationObserver(() => {
+      const html = responseBox.innerHTML;
+      const text = responseBox.innerText.toLowerCase();
+  
+      clearErrors();
+  
+      // ✅ SUCCESS
+      if (
+        text.includes("subscription is now complete") ||
+        text.includes("thank you")
+      ) {
+        wrapper.style.display = "none";
+        document
+          .getElementById("vbout-success-ui")
+          .classList.add("active");
+        return;
+      }
+  
+      // ❌ ERROR JSON
+      const jsonMatch = html.match(/\{[\s\S]*"errorList"[\s\S]*?\}/);
+      if (!jsonMatch) return;
+  
+      const data = JSON.parse(jsonMatch[0]);
+  
+      if (data.errorList && data.errorMessages) {
+        data.errorList.forEach((fieldName, index) => {
+          const field = form.querySelector(`[name="${fieldName}"]`);
+          if (!field) return;
+  
+          field.classList.add("field-error");
+          const msgBox = field
+            .closest(".vboutEmbedFormRow")
+            .querySelector(".field-error-msg");
+  
+          if (msgBox) {
+            msgBox.textContent = data.errorMessages[index];
+          }
+        });
+  
+        // scroll to first error
+        const first = form.querySelector(".field-error");
+        if (first) {
+          first.scrollIntoView({ behavior: "smooth", block: "center" });
+          first.focus();
+        }
+      }
     });
-  };
+  
+    observer.observe(responseBox, {
+      childList: true,
+      subtree: true,
+    });
+  
+    return () => observer.disconnect();
+  }, []);
+  
+  
 
   return (
     <>
@@ -128,81 +238,80 @@ const Contact = () => {
             <h2>Contact Us</h2>
             <h4>Fill below form field for general enquiry</h4>
           </div>
+
           <div className="contact-form-wrapper">
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label htmlFor="firstName">First name</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="lastName">Last name</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="company">Company</label>
-                <input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="email">Your email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="phone">Your Phone</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="message">Your message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" className="submit-btn">
-                Submit
-              </button>
-            </form>
+            {/* VBOUT Script */}
+            <script
+              async
+              src="https://www.vbt.io/ext/vbtforms.js?lang=en"
+              charSet="utf-8"
+            ></script>
+
+            {/* VBOUT CONFIG */}
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `(function(t){
+            var n="_vbtefso";
+            t[n]=t[n]||{};
+            t[n][182767]="eyJkZXBlbmRlbnRGaWVsZHMiOltdLCJlcnJvck1lc3NhZ2VzIjp7ImVycm9ycyI6IlBsZWFzZSBjaGVjayB0aGUgZXJyb3JzIGluIHRoZSBmb3JtLiIsInJlcXVpcmVkIjoiVGhpcyBmaWVsZCBpcyByZXF1aXJlZC4iLCJpbnZhbGlkX2VtYWlsIjoiUGxlYXNlIGVudGVyIGEgdmFsaWQgZW1haWwgYWRkcmVzcyEifX0=";
+          })(window);`,
+              }}
+            />
+
+            {/* VBOUT FORM */}
+            <div id="vboutEmbedFormWrapper-182767" className="contact-form">
+              <div
+                id="vboutEmbedFormResponse-182767"
+                className="vbout-response"
+                style={{ display: "none" }}
+              ></div>
+              <form
+                action="https://www.vbt.io/embedcode/submit/182767/?_format=page&_vbtRef="
+                method="post"
+                id="vboutEmbedForm-182767"
+                data-vboutform="182767"
+              >
+                <fieldset>
+                  <div className="vboutEmbedFormRow">
+                    <label htmlFor="field-631383">First Name</label>
+                    <input type="text" id="field-631383" name="vbout_EmbedForm[field][631383]" required />
+                  </div>
+
+                  <div className="vboutEmbedFormRow">
+                    <label htmlFor="field-631384">Last Name</label>
+                    <input type="text" id="field-631384" name="vbout_EmbedForm[field][631384]" required />
+                  </div>
+
+                  <div className="vboutEmbedFormRow">
+                    <label htmlFor="field-631406">Company</label>
+                    <input type="text" id="field-631406" name="vbout_EmbedForm[field][631406]" />
+                  </div>
+
+                  <div className="vboutEmbedFormRow">
+                    <label htmlFor="field-631385">Email</label>
+                    <input type="email" id="field-631385" name="vbout_EmbedForm[field][631385]" required />
+                  </div>
+
+                  <div className="vboutEmbedFormRow">
+                    <label htmlFor="field-631386">Phone</label>
+                    <input type="tel" id="field-631386" name="vbout_EmbedForm[field][631386]" required />
+                  </div>
+
+                  <div className="vboutEmbedFormRow">
+                    <label htmlFor="field-631398">Your Message</label>
+                    <textarea id="field-631398" name="vbout_EmbedForm[field][631398]" required />
+                  </div>
+
+                  <button type="submit" className="submit-btn">
+                    Submit
+                  </button>
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
       </section>
-
+      
       {/* ===== FOOTER ===== */}
       <Footer />
     </>

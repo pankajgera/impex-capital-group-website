@@ -57,7 +57,7 @@ const Footer = ({
       </div>
 
       <div className="footer-btm">
-        <div>© 2025 Impex Capital Group. All Rights Reserved.</div>
+        <div>© 2026 Impex Capital Group. All Rights Reserved.</div>
         <div>
           5251 Westheimer Suite 925, Houston, TX 77056
           <br />

@@ -188,7 +188,7 @@
 /* =========================
    CONTACT FORM SECTION
 ========================= */
-.contact-form-section {
+/* .contact-form-section {
   padding: 8rem 10%;
   background: var(--bg-dark);
 }
@@ -307,7 +307,430 @@
   color: #000;
   transform: translateY(-2px);
   box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+} */
+
+
+/* ===============================
+   CENTER + WIDTH FIX
+================================ */
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
 }
+
+.contact-form-section {
+  padding-top: 6rem;  
+  padding-bottom: 6rem; 
+}
+
+.form-header {
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+  text-align: left;
+}
+
+.form-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.form-header h4 {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+}
+
+#vboutEmbedFormWrapper-182767 {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  padding: 3rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+#vboutEmbedFormWrapper-182767:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* ===============================
+   REMOVE VBOUT DEFAULT BOXES
+================================ */
+#vboutEmbedFormWrapper-182767 form,
+#vboutEmbedFormWrapper-182767 fieldset {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  min-width: 0 !important;
+}
+
+/* ===============================
+   ROW SPACING (FORM-GROUP LIKE)
+================================ */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Phone field - keep same width as other inputs, maintain alignment */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow input[type="tel"] {
+  width: 100% !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  position: relative;
+  vertical-align: middle;
+  line-height: 56px;
+  height: 56px;
+  box-sizing: border-box;
+}
+
+/* Keep country selector aligned when phone field has error */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow input[type="tel"].field-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.2) !important;
+  width: 100% !important;
+  flex: 1 !important;
+}
+
+/* Phone field container - keep flag aligned, prevent shifting */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+/* Phone input wrapper - if VBOUT wraps it in a div */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow > div:has(input[type="tel"]),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow > span:has(input[type="tel"]) {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  gap: 0.5rem;
+  flex-direction: row !important;
+  box-sizing: border-box;
+  flex-wrap: nowrap !important;
+}
+
+/* Ensure phone input takes full width like other fields */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) input[type="tel"] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Keep country flag/selector aligned - no vertical shift, ensure it's visible */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow select,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow [class*="flag"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow [class*="country"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow img[alt*="flag"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) select,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="flag"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="country"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) img {
+  align-self: center !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Keep country dropdown closed by default - hide dropdown menus */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="dropdown-menu"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="options"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) ul[class*="dropdown"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) ul[class*="list"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) div[class*="dropdown-menu"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) div[class*="options"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Show dropdown only when explicitly opened */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="dropdown-menu"].show,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="dropdown-menu"].open,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="options"].open {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure country selector itself is visible but dropdown is closed */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) select,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="country-select"],
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) [class*="flag-select"] {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* ===============================
+   LABELS (EXACT MATCH)
+================================ */
+#vboutEmbedFormWrapper-182767 label {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--text-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#vboutEmbedFormWrapper-182767 label::after {
+  content: '*';
+  color: var(--text-gold);
+  margin-left: 3px;
+}
+
+/* Hide star for Company field (not required) */
+#vboutEmbedFormWrapper-182767 label.no-required-star::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Fallback: Hide star for Company label using :has() selector */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[name="vbout_EmbedForm[field][631406]"]) label::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* ===============================
+   INPUTS & TEXTAREA (HEIGHT FIX)
+================================ */
+#vboutEmbedFormWrapper-182767 input,
+#vboutEmbedFormWrapper-182767 textarea {
+  width: 100%;
+  height: 56px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-white);
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+#vboutEmbedFormWrapper-182767 textarea {
+  height: auto;
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* ===============================
+   FOCUS STATE
+================================ */
+#vboutEmbedFormWrapper-182767 input:focus,
+#vboutEmbedFormWrapper-182767 textarea:focus {
+  outline: none;
+  border-color: var(--text-gold);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* ===============================
+   SUBMIT BUTTON (ORIGINAL STYLE)
+================================ */
+#vboutEmbedFormWrapper-182767 button[type="submit"] {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: transparent;
+  border: 1px solid var(--text-gold);
+  color: var(--text-gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+#vboutEmbedFormWrapper-182767 button[type="submit"]:hover {
+  color: #000;
+  background: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* ===============================
+   SAFETY: NO WIDTH BREAK
+================================ */
+#vboutEmbedFormWrapper-182767 * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Response message styling */
+.vbout-response {
+  display: none !important;
+  padding: 2rem;
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(212,175,55,0.35);
+  color: rgba(255,255,255,0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.field-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 3px rgba(255,77,77,0.2);
+}
+
+.field-error-msg {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}
+
+.vbout-response {
+  display: none; /* only used for parsing */
+}
+
+/* Error message styling in response - make all error text red */
+.vbout-response .error,
+.vbout-response [class*="error"] {
+  color: #ff4d4d !important;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+/* Make response box text red if it contains error/required text */
+.vbout-response {
+  color: rgba(255,255,255,0.9);
+}
+
+.vbout-response.has-error,
+.vbout-response:has(.error) {
+  color: #ff4d4d !important;
+}
+
+/* Make all text in error response red */
+.vbout-response:has(.error) *,
+.vbout-response.has-error * {
+  color: #ff4d4d !important;
+}
+
+/* Success message styling */
+.vbout-response:not(:has(.error)) {
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+}
+
+/* Show error ONLY after submit - all empty fields */
+.form-submitted input:invalid.field-error,
+.form-submitted textarea:invalid.field-error,
+.form-submitted input.field-error,
+.form-submitted textarea.field-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.2) !important;
+}
+
+/* Reset border for fields with value */
+.form-submitted input:not(.field-error),
+.form-submitted textarea:not(.field-error) {
+  border-color: var(--border-color) !important;
+  box-shadow: none !important;
+}
+
+/* Hide individual error messages that appear below each field */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow input + span,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow textarea + span,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow input + div,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow textarea + div,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow .error,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow .vbout-error {
+  display: none !important;
+}
+
+/* Specifically hide phone field error messages that appear on side */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) input[type="tel"] ~ span:not([class*="flag"]):not([class*="country"]):not(select),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) input[type="tel"] ~ div:not([class*="flag"]):not([class*="country"]):not(:has(select)),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > div:has(input[type="tel"]) ~ span:not([class*="flag"]):not([class*="country"]),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > div:has(input[type="tel"]) ~ div:not([class*="flag"]):not([class*="country"]):not(:has(select)),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) span:not(label):not([class*="flag"]):not([class*="country"]):not(select),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) div:not(:has(input[type="tel"])):not([class*="flag"]):not([class*="country"]):not(:has(select)) {
+  /* Check if it's an error message */
+  display: var(--hide-error, none) !important;
+}
+
+/* Hide error messages in phone row that contain "required" text */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) *:not(input):not(label):not(select):not([class*="flag"]):not([class*="country"]) {
+  content: attr(data-content);
+}
+
+/* Force hide error messages next to phone input */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > *:not(label):not(div:has(input[type="tel"])):not(select):not([class*="flag"]):not([class*="country"]) {
+  display: none !important;
+}
+
+/* Phone field error message - ensure it appears below, not on side */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) input[type="tel"] + span,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) input[type="tel"] + div {
+  display: none !important;
+}
+
+/* Force phone wrapper to be full width and error messages below */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > div:has(input[type="tel"]) {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  order: 1 !important;
+}
+
+/* Any error message after phone wrapper should be below */
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > div:has(input[type="tel"]) + span,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > div:has(input[type="tel"]) + div,
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > span:has(+ input[type="tel"]),
+#vboutEmbedFormWrapper-182767 .vboutEmbedFormRow:has(input[type="tel"]) > *:not(label):not(div:has(input[type="tel"])) {
+  width: 100% !important;
+  order: 2 !important;
+  display: block !important;
+  margin-top: 0.5rem !important;
+  clear: both !important;
+}
+
+/* Show only the main response box when it has content (via JavaScript) */
+#vboutEmbedFormResponse-182767.has-content {
+  display: block !important;
+}
+
+/* Reset border on input focus */
+#vboutEmbedFormWrapper-182767 input:focus,
+#vboutEmbedFormWrapper-182767 textarea:focus {
+  border-color: var(--text-gold) !important;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1) !important;
+}
+
+/* Ensure fields with value don't have red border */
+#vboutEmbedFormWrapper-182767 input:not(.field-error),
+#vboutEmbedFormWrapper-182767 textarea:not(.field-error) {
+  border-color: var(--border-color) !important;
+}
+
+
+
 
 /* =========================
    RESPONSIVE

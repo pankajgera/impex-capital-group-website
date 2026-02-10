@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./Team.css";
 
@@ -135,7 +136,17 @@ const Team = () => {
               </button>
             </div>
 
-            <button className="btn-gold-outline">View More</button>
+            {currentPerson.name === "Ash Shah" ? (
+              <Link to="/team/ash-shah" className="btn-gold-outline">
+                View More
+              </Link>
+            ) : currentPerson.name === "Nisha Smith" ? (
+              <Link to="/team/nisha-smith" className="btn-gold-outline">
+                View More
+              </Link>
+            ) : (
+              <button className="btn-gold-outline">View More</button>
+            )}
           </div>
 
           {/* Right: main image + thumbnails */}
