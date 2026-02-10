@@ -5,6 +5,7 @@ import "./Investors.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import StructuredData from "../../components/StructuredData";
 
 const Investors = () => {
   /* Scroll Reveal Animation */
@@ -25,6 +26,20 @@ const Investors = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Investors", url: "https://impexcapitalgroup.com/investors" }
+        ]}
+        faqs={[
+          {
+            question: "Who can invest with Impex Capital Group?",
+            answer:
+              "Impex Capital Group works with accredited investors seeking long-term real estate investment opportunities."
+          }
+        ]}
+      />
+
       <Navbar />
 
       <main className="investors-page">

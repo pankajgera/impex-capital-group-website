@@ -3,6 +3,7 @@ import "./News.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import StructuredData from "../../components/StructuredData";
 
 const articles = [
   {
@@ -53,6 +54,24 @@ const News = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "News", url: "https://impexcapitalgroup.com/news" }
+        ]}
+        faqs={[
+          {
+            question: "Where can I find news about Impex Capital Group?",
+            answer:
+              "Official news and updates about Impex Capital Group are published on the News page, covering acquisitions, developments, and company milestones."
+          },
+          {
+            question: "What type of updates does Impex Capital Group share?",
+            answer:
+              "Impex Capital Group shares updates related to real estate investments, fund activity, market expansion, and development projects."
+          }
+        ]}
+      />
       <Navbar />
 
       {/* HERO */}

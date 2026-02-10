@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 
 import nishaSmithImg from "../../assets/images/NishaSmith.png";
 import heroSectionImage from "../../assets/images/heroSetionImage.jpg";
+import StructuredData from "../../components/StructuredData";
 
 const NishaSmith = () => {
   /* Scroll Reveal Animation */
@@ -27,6 +28,20 @@ const NishaSmith = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Team", url: "https://impexcapitalgroup.com/team" },
+          { name: "Nisha Smith", url: "https://impexcapitalgroup.com/team/nisha-smith" }
+        ]}
+        person={{
+          name: "Nisha Smith",
+          role: "Director, Investor Relations",
+          bio:
+            "Nisha Smith is the Director of Investor Relations at IMPEX Capital Group, where she plays a critical role in strengthening investor relationships, expanding market reach, and supporting the firm’s capital growth strategy."
+        }}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 

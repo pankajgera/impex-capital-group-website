@@ -146,14 +146,13 @@
     opacity: 1;
   }
   
-  .menu-links:hover button {
-    opacity: 0.2;
-    filter: blur(3px);
+  /* Active route state (no blur on others) */
+  .menu-links button.active {
+    color: #d4af37;
   }
   
+  /* Hover: सिर्फ रंग और हल्की movement, कोई blur/opacity change नहीं */
   .menu-links li button:hover {
-    opacity: 1;
-    filter: blur(0);
     color: #d4af37;
     transform: translateX(20px);
   }

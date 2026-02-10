@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 import seniorLivingImg from "../../assets/images/Seniorliving.png";
+import StructuredData from "../../components/StructuredData";
 
 const Land = () => {
   const [properties, setProperties] = useState([]);
@@ -96,6 +97,25 @@ const Land = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Land", url: "https://impexcapitalgroup.com/land" }
+        ]}
+        faqs={[
+          {
+            question: "What type of land investments does Impex Capital Group pursue?",
+            answer:
+              "Impex Capital Group pursues strategic land investments in high-growth markets for future residential and commercial development."
+          },
+          {
+            question: "How does Impex Capital Group evaluate land opportunities?",
+            answer:
+              "Land opportunities are evaluated based on location fundamentals, entitlement potential, and long-term development viability."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 
@@ -171,10 +191,10 @@ const Land = () => {
       {/* ===== DESCRIPTION ===== */}
       <div className="content-description reveal">
         <p>
-        Our land strategy focuses on irreplaceable sites in growth markets, positioned near emerging infrastructure, employment hubs, and future demand drivers.
+          Our land strategy focuses on irreplaceable sites in growth markets, positioned near emerging infrastructure, employment hubs, and future demand drivers.
         </p>
         <p>
-        By securing and entitling land early in the cycle, we create optionality for build‑to‑core, merchant development, or joint‑venture partnerships tailored to market conditions.
+          By securing and entitling land early in the cycle, we create optionality for build‑to‑core, merchant development, or joint‑venture partnerships tailored to market conditions.
         </p>
       </div>
 

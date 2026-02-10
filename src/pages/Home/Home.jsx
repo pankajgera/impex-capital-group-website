@@ -14,6 +14,7 @@ import bottomInvestorImg from "../../assets/images/Bottominvestor.png";
 import denverImg from "../../assets/images/denver.png";
 import ivfundImg from "../../assets/images/ivfund.png";
 import houstonImg from "../../assets/images/houston.png";
+import StructuredData from "../../components/StructuredData";
 
 const Home = () => {
   /* Scroll Reveal Animation */
@@ -34,6 +35,27 @@ const Home = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          {
+            name: "Home",
+            url: "https://impexcapitalgroup.com"
+          }
+        ]}
+        faqs={[
+          {
+            question: "What is Impex Capital Group?",
+            answer:
+              "Impex Capital Group is a privately held real estate investment firm based in Houston, Texas that owns and manages approximately $450 million in real estate assets across the United States."
+          },
+          {
+            question: "What type of investments does Impex Capital Group focus on?",
+            answer:
+              "Impex Capital Group focuses on value-add acquisitions, asset management, and strategic real estate investments across multiple asset classes."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 

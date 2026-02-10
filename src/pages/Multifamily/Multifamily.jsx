@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 import multifamilyImg from "../../assets/images/multifamily.png";
+import StructuredData from "../../components/StructuredData";
 
 const Multifamily = () => {
   const [properties, setProperties] = useState([]);
@@ -93,6 +94,25 @@ const Multifamily = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Multifamily", url: "https://impexcapitalgroup.com/multifamily" }
+        ]}
+        faqs={[
+          {
+            question: "What is Impex Capital Group’s multifamily investment strategy?",
+            answer:
+              "Impex Capital Group focuses on acquiring and operating multifamily communities through value-add strategies and active asset management."
+          },
+          {
+            question: "Where does Impex Capital Group invest in multifamily assets?",
+            answer:
+              "Multifamily investments are made in select U.S. markets with strong population growth and demand fundamentals."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 

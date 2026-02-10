@@ -5,6 +5,7 @@ import "./Hotel.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import StructuredData from "../../components/StructuredData";
 
 const Hotel = () => {
   const [properties, setProperties] = useState([]);
@@ -91,6 +92,25 @@ const Hotel = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Hotel", url: "https://impexcapitalgroup.com/commercial" }
+        ]}
+        faqs={[
+          {
+            question: "What types of hospitality assets does Impex Capital Group invest in?",
+            answer:
+              "Impex Capital Group invests in hotel and hospitality assets located in strategic markets with strong travel and demand fundamentals."
+          },
+          {
+            question: "How does Impex Capital Group approach hotel investments?",
+            answer:
+              "Hotel investments are evaluated based on market demand, operational performance, brand positioning, and long-term value creation potential."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 

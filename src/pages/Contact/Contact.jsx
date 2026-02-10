@@ -4,6 +4,7 @@ import "./Contact.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import StructuredData from "../../components/StructuredData";
 
 const Contact = () => {
   /* Scroll Reveal Animation */
@@ -27,7 +28,7 @@ const Contact = () => {
     const form = document.getElementById("vboutEmbedForm-182767");
     const wrapper = document.getElementById("vboutEmbedFormWrapper-182767");
     const responseBox = document.getElementById("vboutEmbedFormResponse-182767");
-  
+
     if (!form || !responseBox) return;
 
     // Initialize phone field country selector to India (+91)
@@ -43,7 +44,7 @@ const Contact = () => {
       // Wait for VBOUT to initialize the country selector
       let attempts = 0;
       const maxAttempts = 50; // 5 seconds max
-      
+
       const checkCountrySelector = setInterval(() => {
         attempts++;
         const phoneRow = phoneInput.closest('.vboutEmbedFormRow');
@@ -54,16 +55,16 @@ const Contact = () => {
 
         // Find country selector (could be select, div with class, etc.)
         const countrySelect = phoneRow.querySelector('select, [class*="country"], [class*="flag"], [data-country], [class*="phone-country"]');
-        
+
         if (countrySelect) {
           clearInterval(checkCountrySelector);
-          
+
           // Set to India (+91)
           if (countrySelect.tagName === 'SELECT') {
             // Try to find India option
-            const indiaOption = Array.from(countrySelect.options).find(opt => 
-              opt.value.toLowerCase() === 'in' || 
-              opt.value === '91' || 
+            const indiaOption = Array.from(countrySelect.options).find(opt =>
+              opt.value.toLowerCase() === 'in' ||
+              opt.value === '91' ||
               opt.value === '+91' ||
               opt.textContent.toLowerCase().includes('india') ||
               opt.textContent.includes('+91') ||
@@ -81,7 +82,7 @@ const Contact = () => {
               countrySelect.setAttribute('data-code', '91');
             }
           }
-          
+
           // Close any open dropdowns
           const closeDropdowns = () => {
             const openDropdowns = phoneRow.querySelectorAll('[class*="open"], [aria-expanded="true"], [class*="active"]');
@@ -93,18 +94,18 @@ const Contact = () => {
               }
             });
           };
-          
+
           closeDropdowns();
-          
+
           // Close dropdown on click outside
           const handleClickOutside = (e) => {
             if (!phoneRow.contains(e.target)) {
               closeDropdowns();
             }
           };
-          
+
           document.addEventListener('click', handleClickOutside);
-          
+
           // Also close on country selector click if it opens
           if (countrySelect.addEventListener) {
             countrySelect.addEventListener('click', (e) => {
@@ -121,7 +122,7 @@ const Contact = () => {
     setTimeout(initPhoneField, 300);
     setTimeout(initPhoneField, 1000);
     setTimeout(initPhoneField, 2000);
-  
+
     const clearErrors = () => {
       form.querySelectorAll(".field-error-msg").forEach(el => {
         el.textContent = "";
@@ -130,13 +131,13 @@ const Contact = () => {
         el.classList.remove("field-error");
       });
     };
-  
+
     const observer = new MutationObserver(() => {
       const html = responseBox.innerHTML;
       const text = responseBox.innerText.toLowerCase();
-  
+
       clearErrors();
-  
+
       // ✅ SUCCESS
       if (
         text.includes("subscription is now complete") ||
@@ -148,28 +149,28 @@ const Contact = () => {
           .classList.add("active");
         return;
       }
-  
+
       // ❌ ERROR JSON
       const jsonMatch = html.match(/\{[\s\S]*"errorList"[\s\S]*?\}/);
       if (!jsonMatch) return;
-  
+
       const data = JSON.parse(jsonMatch[0]);
-  
+
       if (data.errorList && data.errorMessages) {
         data.errorList.forEach((fieldName, index) => {
           const field = form.querySelector(`[name="${fieldName}"]`);
           if (!field) return;
-  
+
           field.classList.add("field-error");
           const msgBox = field
             .closest(".vboutEmbedFormRow")
             .querySelector(".field-error-msg");
-  
+
           if (msgBox) {
             msgBox.textContent = data.errorMessages[index];
           }
         });
-  
+
         // scroll to first error
         const first = form.querySelector(".field-error");
         if (first) {
@@ -178,19 +179,38 @@ const Contact = () => {
         }
       }
     });
-  
+
     observer.observe(responseBox, {
       childList: true,
       subtree: true,
     });
-  
+
     return () => observer.disconnect();
   }, []);
-  
-  
+
+
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Contact Us", url: "https://impexcapitalgroup.com/contact" }
+        ]}
+        faqs={[
+          {
+            question: "How can I contact Impex Capital Group?",
+            answer:
+              "You can contact Impex Capital Group by calling 1-833-467-3924 or emailing investor_relations@impexcapitalgroup.com."
+          },
+          {
+            question: "Where is Impex Capital Group located?",
+            answer:
+              "Impex Capital Group is located at 5251 Westheimer Suite 925, Houston, TX 77056."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 
@@ -311,7 +331,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      
+
       {/* ===== FOOTER ===== */}
       <Footer />
     </>

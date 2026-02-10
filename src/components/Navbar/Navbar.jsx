@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
   const navbarRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => {
@@ -52,14 +53,20 @@ const Navbar = () => {
               ["/investors", "Investors", "04"],
               ["/news", "News", "05"],
               ["/contact", "Contact", "06"],
-            ].map(([path, label, num]) => (
-              <li key={path}>
-                <button className="link-reset" onClick={() => goTo(path)}>
-                  {label}
-                </button>
-                <span className="menu-num">{num}</span>
-              </li>
-            ))}
+            ].map(([path, label, num]) => {
+              const isActive = location.pathname === path;
+              return (
+                <li key={path}>
+                  <button
+                    className={`link-reset ${isActive ? "active" : ""}`}
+                    onClick={() => goTo(path)}
+                  >
+                    {label}
+                  </button>
+                  <span className="menu-num">{num}</span>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="menu-footer">

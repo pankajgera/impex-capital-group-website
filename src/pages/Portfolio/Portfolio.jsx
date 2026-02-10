@@ -4,6 +4,7 @@ import "./Portfolio.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import StructuredData from "../../components/StructuredData";
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -100,123 +101,143 @@ const Portfolio = () => {
       : portfolioItems.filter((item) => item.category === activeFilter);
 
   return (
-    <div className="portfolio-page">
-      {/* ===== NAVBAR ===== */}
-      <Navbar />
+    <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Portfolio", url: "https://impexcapitalgroup.com/portfolio" }
+        ]}
+        faqs={[
+          {
+            question: "What is included in the Impex Capital Group portfolio?",
+            answer:
+              "The Impex Capital Group portfolio includes multifamily, commercial, hospitality, and land assets across multiple U.S. markets."
+          },
+          {
+            question: "How does Impex Capital Group manage its portfolio?",
+            answer:
+              "Impex Capital Group actively manages its portfolio through value-add strategies, disciplined asset management, and strategic capital allocation."
+          }
+        ]}
+      />
+      <div className="portfolio-page">
+        {/* ===== NAVBAR ===== */}
+        <Navbar />
 
-      {/* ===== HERO SECTION ===== */}
-      <header className="page-header">
-        <div className="header-content">
-          <span className="header-subtitle">Our Investment Portfolio</span>
-          <h1>PORTFOLIO</h1>
-          <p className="header-description">
-            With over two decades of experience ranging from Multi Family, Offices,
-            Industrial, Assisted Living and New Developments, Impex Capital Group
-            plays a key role in the profitability of our investors.
-          </p>
-        </div>
-        <div className="scroll-indicator">Scroll</div>
-      </header>
-
-      {/* ===== STATS SECTION ===== */}
-      <section className="stats-section reveal">
-        <div className="stats-container">
-          <div className="stat-item">
-            <span className="stat-number">60+</span>
-            <span className="stat-label">Properties</span>
+        {/* ===== HERO SECTION ===== */}
+        <header className="page-header">
+          <div className="header-content">
+            <span className="header-subtitle">Our Investment Portfolio</span>
+            <h1>PORTFOLIO</h1>
+            <p className="header-description">
+              With over two decades of experience ranging from Multi Family, Offices,
+              Industrial, Assisted Living and New Developments, Impex Capital Group
+              plays a key role in the profitability of our investors.
+            </p>
           </div>
-          <div className="stat-item">
-            <span className="stat-number">1.8B+</span>
-            <span className="stat-label">Investments</span>
+          <div className="scroll-indicator">Scroll</div>
+        </header>
+
+        {/* ===== STATS SECTION ===== */}
+        <section className="stats-section reveal">
+          <div className="stats-container">
+            <div className="stat-item">
+              <span className="stat-number">60+</span>
+              <span className="stat-label">Properties</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">1.8B+</span>
+              <span className="stat-label">Investments</span>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ===== PORTFOLIO INTRO ===== */}
-      <section className="portfolio-intro reveal">
-        <div className="intro-headline">
-          <h2>
-            With over two decades of experience ranging from Multi Family, Offices,
-            Industrial, Assisted Living and New Developments, Impex Capital Group
-            plays a key role in the profitability of our investors.
-          </h2>
-        </div>
-        <div className="intro-text">
-          <p>
-            Our diverse portfolio spans multiple asset classes and geographic
-            markets, reflecting our strategic approach to real estate investment.
-            Each property in our portfolio represents a carefully selected
-            opportunity aligned with our investment thesis and market fundamentals.
-          </p>
-        </div>
-      </section>
-
-      {/* ===== FILTER SECTION ===== */}
-      <section className="filter-section reveal">
-        <span className="section-label">Filter By Asset Class</span>
-
-        <div className="filter-container">
-          <div className="filter-list">
-            {filterCategories.map((filter) => (
-              <button
-                key={filter.value}
-                className={`filter-btn ${activeFilter === filter.value ? "active" : ""
-                  }`}
-                onClick={() => handleFilter(filter.value)}
-              >
-                {filter.label}
-              </button>
-            ))}
+        {/* ===== PORTFOLIO INTRO ===== */}
+        <section className="portfolio-intro reveal">
+          <div className="intro-headline">
+            <h2>
+              With over two decades of experience ranging from Multi Family, Offices,
+              Industrial, Assisted Living and New Developments, Impex Capital Group
+              plays a key role in the profitability of our investors.
+            </h2>
           </div>
-        </div>
-      </section>
+          <div className="intro-text">
+            <p>
+              Our diverse portfolio spans multiple asset classes and geographic
+              markets, reflecting our strategic approach to real estate investment.
+              Each property in our portfolio represents a carefully selected
+              opportunity aligned with our investment thesis and market fundamentals.
+            </p>
+          </div>
+        </section>
 
-      {/* ===== PORTFOLIO GRID ===== */}
-      <section className="portfolio-section reveal">
-        <div className="portfolio-grid">
-          {filteredItems.map((item) => {
-            const isExited = item.category === "exited-portfolio";
-            return (
-              <div
-                key={item.id}
-                className={`portfolio-item ${activeFilter !== "all" &&
-                  activeFilter !== item.category
-                  ? "hidden"
-                  : ""
-                  }`}
-                data-category={item.category}
-              >
-                <div className="p-img-container">
-                  <img
-                    src={item.image}
-                    className="p-img"
-                    alt={item.title}
-                  />
-                  <div className="p-overlay">
-                    <span className="p-cat">
-                      {isExited ? (
-                        <span className="exited-badge">
-                          Exited Portfolio
-                        </span>
-                      ) : (
-                        getCategoryLabel(item.category)
+        {/* ===== FILTER SECTION ===== */}
+        <section className="filter-section reveal">
+          <span className="section-label">Filter By Asset Class</span>
+
+          <div className="filter-container">
+            <div className="filter-list">
+              {filterCategories.map((filter) => (
+                <button
+                  key={filter.value}
+                  className={`filter-btn ${activeFilter === filter.value ? "active" : ""
+                    }`}
+                  onClick={() => handleFilter(filter.value)}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== PORTFOLIO GRID ===== */}
+        <section className="portfolio-section reveal">
+          <div className="portfolio-grid">
+            {filteredItems.map((item) => {
+              const isExited = item.category === "exited-portfolio";
+              return (
+                <div
+                  key={item.id}
+                  className={`portfolio-item ${activeFilter !== "all" &&
+                    activeFilter !== item.category
+                    ? "hidden"
+                    : ""
+                    }`}
+                  data-category={item.category}
+                >
+                  <div className="p-img-container">
+                    <img
+                      src={item.image}
+                      className="p-img"
+                      alt={item.title}
+                    />
+                    <div className="p-overlay">
+                      <span className="p-cat">
+                        {isExited ? (
+                          <span className="exited-badge">
+                            Exited Portfolio
+                          </span>
+                        ) : (
+                          getCategoryLabel(item.category)
+                        )}
+                      </span>
+                      <h3 className="p-title">{item.title}</h3>
+                      {item.location && (
+                        <div className="p-loc">{item.location}</div>
                       )}
-                    </span>
-                    <h3 className="p-title">{item.title}</h3>
-                    {item.location && (
-                      <div className="p-loc">{item.location}</div>
-                    )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+              );
+            })}
+          </div>
+        </section>
 
-      {/* ===== FOOTER ===== */}
-      <Footer variant="portfolio" />
-    </div>
+        {/* ===== FOOTER ===== */}
+        <Footer variant="portfolio" />
+      </div>
+    </>
   );
 };
 

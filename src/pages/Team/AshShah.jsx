@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 
 import ashShahImg from "../../assets/images/AshShah.png";
 import heroSectionImage from "../../assets/images/heroSetionImage.jpg";
+import StructuredData from "../../components/StructuredData";
 
 const AshShah = () => {
   /* Scroll Reveal Animation */
@@ -27,6 +28,20 @@ const AshShah = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Team", url: "https://impexcapitalgroup.com/team" },
+          { name: "Ash Shah", url: "https://impexcapitalgroup.com/team/ash-shah" }
+        ]}
+        person={{
+          name: "Ash Shah",
+          role: "President & CEO",
+          bio:
+            "Ash Shah is the President and CEO of Impex Capital Group, overseeing real estate investment strategy and asset management."
+        }}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 

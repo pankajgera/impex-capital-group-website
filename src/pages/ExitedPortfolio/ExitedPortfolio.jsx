@@ -5,6 +5,7 @@ import "./ExitedPortfolio.css";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import StructuredData from "../../components/StructuredData";
 
 const ExitedPortfolio = () => {
   const [properties, setProperties] = useState([]);
@@ -94,6 +95,26 @@ const ExitedPortfolio = () => {
 
   return (
     <>
+
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Exited Portfolio", url: "https://impexcapitalgroup.com/exited-portfolio" }
+        ]}
+        faqs={[
+          {
+            question: "What is the exited portfolio of Impex Capital Group?",
+            answer:
+              "The exited portfolio highlights real estate investments that Impex Capital Group has successfully realized across various asset classes."
+          },
+          {
+            question: "What does an exited investment indicate?",
+            answer:
+              "Exited investments reflect completed business plans and realized outcomes following asset repositioning or market execution."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 

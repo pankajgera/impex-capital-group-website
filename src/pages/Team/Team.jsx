@@ -8,6 +8,7 @@ import Footer from "../../components/Footer/Footer";
 
 import ashShahImg from "../../assets/images/AshShah.png";
 import nishaSmithImg from "../../assets/images/NishaSmith.png";
+import StructuredData from "../../components/StructuredData";
 
 const Team = () => {
   const [currentMember, setCurrentMember] = useState(0);
@@ -66,6 +67,20 @@ const Team = () => {
 
   return (
     <>
+      <StructuredData
+        breadcrumbs={[
+          { name: "Home", url: "https://impexcapitalgroup.com" },
+          { name: "Team", url: "https://impexcapitalgroup.com/team" }
+        ]}
+        faqs={[
+          {
+            question: "Who leads Impex Capital Group?",
+            answer:
+              "Impex Capital Group is led by an experienced executive team with expertise in real estate investment and asset management."
+          }
+        ]}
+      />
+
       {/* ===== NAVBAR ===== */}
       <Navbar />
 
@@ -178,7 +193,7 @@ const Team = () => {
       </section>
 
       {/* ===== FOOTER ===== */}
-      <Footer 
+      <Footer
         heading="Partner With Our Team"
         text="For co‑investment opportunities, strategic partnerships, or speaking engagements with our leadership, please contact our investor relations team."
       />
