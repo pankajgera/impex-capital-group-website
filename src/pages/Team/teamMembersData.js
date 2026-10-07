@@ -92,21 +92,21 @@ export const TEAM_MEMBERS = [
   },
   {
     slug: "michael",
-    name: "Michael Munshi",
+    name: "Michael D. Munshi",
     role: "Chief Revenue Officer",
     image: michaelImg,
     mobileImage: michaelImgMobile,
     linkedin: "https://www.linkedin.com/in/michaelmunshi/",
     bio: [
-      "Michael Munshi is a Chief Revenue Officer at Impex Capital Group with more than 30 years of leadership experience spanning capital markets, real estate finance, and development.",
-      "Over the course of his career, he has held senior leadership roles at global financial institutions including Wells Fargo, Bank of America, and Citigroup, where he led large-scale revenue platforms, built high-performing national teams, and managed complex multi-billion-dollar P&L operations.",
+      "Michael D. Munshi is a Chief Revenue Officer at Impex Capital Group with more than 30 years of leadership experience spanning capital markets, real estate finance, and development.",
+      "Over the course of his career, he has held senior leadership roles at global financial institutions including Wells Fargo, Bank of America, Chase, and Citigroup, where he led large-scale revenue platforms, built high-performing national teams, and managed complex multi-billion-dollar P&L operations.",
       "Michael brings deep expertise in institutional capital formation, cross-border partnerships, and strategic business development across global markets. He has partnered with institutional investors, private capital sources, and operating sponsors across the United States, Europe, the Middle East, and Southeast Asia, structuring and scaling disciplined real estate investment strategies.",
       "As Chief Revenue Officer at IMPEX Capital Group, Michael focuses on expanding strategic partnerships, sourcing multi-asset investment opportunities, and aligning global capital with high-quality commercial real estate platforms to drive long-term value creation.",
     ],
     seo: {
-      title: "Michael Munshi | Chief Revenue Officer | Impex Capital Group",
+      title: "Michael D. Munshi | Chief Revenue Officer | Impex Capital Group",
       description:
-        "Read the professional profile and biography of Michael Munshi, Chief Revenue Officer at Impex Capital Group. Learn about their real estate investment expertise and leadership.",
+        "Read the professional profile and biography of Michael D. Munshi, Chief Revenue Officer at Impex Capital Group. Learn about their real estate investment expertise and leadership.",
     },
     structuredPersonBio:
       "Michael is Chief Revenue Officer at IMPEX Capital Group, leading strategic partnerships and global capital alignment across commercial real estate investments.",
@@ -119,7 +119,7 @@ export const TEAM_MEMBERS = [
       bioTitle: "Driving Global Capital Strategy & Strategic Partnerships",
       longBio: [
         "Michael is a Chief Revenue Officer at Impex Capital Group with more than 30 years of leadership experience spanning capital markets, real estate finance, and development.",
-        "Over the course of his career, he has held senior leadership roles at global financial institutions including Wells Fargo, Bank of America, and Citigroup, where he led large-scale revenue platforms, built high-performing national teams, and managed complex multi-billion-dollar P&L operations.",
+        "Over the course of his career, he has held senior leadership roles at global financial institutions including Wells Fargo, Bank of America, Chase, and Citigroup, where he led large-scale revenue platforms, built high-performing national teams, and managed complex multi-billion-dollar P&L operations.",
         "Michael brings deep expertise in institutional capital formation, cross-border partnerships, and strategic business development across global markets. He has partnered with institutional investors, private capital sources, and operating sponsors across the United States, Europe, the Middle East, and Southeast Asia, structuring and scaling disciplined real estate investment strategies.",
         "As Chief Revenue Officer at IMPEX Capital Group, Michael focuses on expanding strategic partnerships, sourcing multi-asset investment opportunities, and aligning global capital with high-quality commercial real estate platforms to drive long-term value creation.",
       ],
@@ -143,7 +143,7 @@ export const TEAM_MEMBERS = [
           heading: "Professional Highlights",
           items: [
             "30+ years of leadership experience",
-            "Senior roles at Wells Fargo, Bank of America & Citigroup",
+            "Senior roles at Wells Fargo, Bank of America, Chase & Citigroup",
             "Managed multi-billion-dollar P&L operations",
             "Global experience across US, Europe, Middle East & Asia",
             "Expertise in institutional partnerships & capital strategy",
