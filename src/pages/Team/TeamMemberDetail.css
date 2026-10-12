@@ -448,3 +448,47 @@
   }
 }
 
+
+/* =========================
+   MOBILE HERO — anchor text block to bottom-left
+   (phones up to 480px; tablet/desktop untouched)
+========================= */
+@media (max-width: 480px) {
+  .member-hero-body {
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 0.25rem 1.5rem calc(2rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .member-hero-main {
+    width: 100%;
+    max-width: min(24rem, 100%);
+    margin: 0;
+    text-align: left;
+  }
+
+  /* Bottom scrim so the text always sits on a dark area of the photo */
+  .member-hero-overlay {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 45%),
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.88) 0%,
+        rgba(0, 0, 0, 0.55) 42%,
+        rgba(0, 0, 0, 0.4) 100%
+      );
+  }
+}
+
+@media (max-width: 425px) {
+  .member-hero-overlay {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 45%),
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.82) 0%,
+        rgba(0, 0, 0, 0.55) 45%,
+        rgba(0, 0, 0, 0.45) 100%
+      );
+  }
+}
