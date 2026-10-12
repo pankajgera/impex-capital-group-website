@@ -143,6 +143,12 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://impexcapitalgroup.com/team/pankaj-gera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Insights Article Detail Pages (slugs must match routes) -->
   <url>
     <loc>https://impexcapitalgroup.com/insights/article/strong-core-fundamentals-creating-attractive-opportunities-despite-market-jitters</loc>
