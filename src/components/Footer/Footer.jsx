@@ -49,7 +49,7 @@ const Footer = () => {
             </Link>
           </nav>
         </div>
-        
+
         <div className="footer-section">
           <h3 className="footer-section-title">About Us</h3>
           <p className="footer-about-text">
@@ -60,7 +60,17 @@ const Footer = () => {
 
       <div className="footer-portfolio-bottom">
         <div className="footer-copyright">
-          Powered by: Cracker Digital Media | Copyright 2026 © Impex Capital Group
+          Powered by:{" "}
+          <a
+            href="https://tectonlogic.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-link"
+            aria-label="Visit Tecton Logic website"
+          >
+            Tecton Logic
+          </a>{" "}
+          | Copyright 2026 © Impex Capital Group
         </div>
         <div className="footer-contact">
           <a
