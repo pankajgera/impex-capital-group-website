@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./Footer.css";
+import tectonLogicIcon from "../../assets/images/tecton-logic-icon.png";
 
 const Footer = () => {
   const location = useLocation();
@@ -59,19 +60,6 @@ const Footer = () => {
       </div>
 
       <div className="footer-portfolio-bottom">
-        <div className="footer-copyright">
-          Powered by:{" "}
-          <a
-            href="https://tectonlogic.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            aria-label="Visit Tecton Logic website"
-          >
-            Tecton Logic
-          </a>{" "}
-          | Copyright 2026 © Impex Capital Group
-        </div>
         <div className="footer-contact">
           <a
             href="https://www.google.com/maps/place/Impex+Capital+Group/@29.7398124,-95.4676206,20.67z/data=!3m1!5s0x8640c1660088901f:0x27ab5d914c39924f!4m6!3m5!1s0x8640b7d5c58b68a1:0x94eb814eccad0500!8m2!3d29.7398767!4d-95.4671945!16s%2Fg%2F11p17yth42?authuser=0&entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
@@ -88,6 +76,26 @@ const Footer = () => {
           <a href="mailto:investor_relations@impexcapitalgroup.com" className="footer-link" aria-label="Email Impex Capital Group at investor_relations@impexcapitalgroup.com">
             investor_relations@impexcapitalgroup.com
           </a>
+        </div>
+        <div className="footer-copyright">
+          <img
+            src={tectonLogicIcon}
+            alt="Tecton Logic"
+            className="footer-credit-icon"
+          />
+          <span>
+            Designed &amp; Developed by{" "}
+            <a
+              href="https://tectonlogic.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link footer-credit-link"
+              aria-label="Visit Tecton Logic website"
+            >
+              Tecton Logic
+            </a>{" "}
+            | Copyright 2026 © Impex Capital Group
+          </span>
         </div>
       </div>
     </footer>

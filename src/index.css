@@ -29,3 +29,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Mobile: clip horizontal overflow without turning html/body/#root into
+   nested scroll containers, so the page can scroll all the way to the footer */
+@media (max-width: 768px) {
+  html,
+  html body,
+  #root {
+    overflow-x: clip;
+  }
+}
