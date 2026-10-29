@@ -159,6 +159,21 @@ footer {
 
 .footer-copyright {
   color: #d1d5db;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-credit-link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-credit-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .footer-contact {
@@ -185,6 +200,11 @@ footer {
     margin-bottom: 0rem;
   }
 
+  /* Keep the last footer line clear of the mobile browser toolbar / home indicator */
+  .footer-portfolio {
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
   /* Portfolio footer layout */
   .footer-portfolio-content {
     grid-template-columns: 1fr;
@@ -207,5 +227,16 @@ footer {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+
+  /* Keep the Tecton Logic icon inline with the credit text so it wraps as one line flow */
+  .footer-copyright {
+    display: block;
+  }
+
+  .footer-credit-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
   }
 }
