@@ -180,8 +180,11 @@ footer {
   color: #d1d5db;
 }
 
+.footer-contact-title {
+  margin-top: 2rem;
+}
+
 .footer-section .footer-contact {
-  margin-top: 1.5rem;
   font-size: 0.9rem;
   line-height: 1.8;
 }
