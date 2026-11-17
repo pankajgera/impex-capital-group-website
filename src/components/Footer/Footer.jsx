@@ -2,6 +2,20 @@ import { Link, useLocation } from "react-router-dom";
 import "./Footer.css";
 import tectonLogicIcon from "../../assets/images/tecton-logic-icon.png";
 
+// Social profile URLs — update here if either changes.
+const SOCIAL_LINKS = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/company/impex-capital-group/",
+    iconClass: "fa-brands fa-linkedin-in",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/impexcapital?mdxt=MTRiNnplNXNmNGRidQ%3D%3D",
+    iconClass: "fa-brands fa-instagram",
+  },
+];
+
 const Footer = () => {
   const location = useLocation();
 
@@ -73,6 +87,21 @@ const Footer = () => {
             <a href="mailto:investor_relations@impexcapitalgroup.com" className="footer-link" aria-label="Email Impex Capital Group at investor_relations@impexcapitalgroup.com">
               investor_relations@impexcapitalgroup.com
             </a>
+          </div>
+          <div className="footer-social">
+            {SOCIAL_LINKS.map(({ name, href, iconClass }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-link"
+                aria-label={`Visit Impex Capital Group on ${name}`}
+                title={name}
+              >
+                <i className={iconClass} aria-hidden="true"></i>
+              </a>
+            ))}
           </div>
         </div>
       </div>
