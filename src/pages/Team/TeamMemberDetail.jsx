@@ -150,8 +150,11 @@ const TeamMemberDetail = () => {
       </section>
 
       <FooterCTA
-        heading="Partner With Our Team"
-        text="For co‑investment opportunities, strategic partnerships, or speaking engagements with our leadership, please contact our investor relations team."
+        heading={detail.footerCta?.heading ?? "Partner With Our Team"}
+        text={
+          detail.footerCta?.text ??
+          "For co‑investment opportunities, strategic partnerships, or speaking engagements with our leadership, please contact our investor relations team."
+        }
       />
       <Footer />
     </>

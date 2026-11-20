@@ -16,8 +16,8 @@ import leenaMehtaImg from "../../assets/images/Leena.png";
 import leenaMehtaImgMobile from "../../assets/images/leenaMehtaImgMobile.png";
 import aryanShahImg from "../../assets/images/Aryan_Shah.png";
 import aryanShahImgMobile from "../../assets/images/aryanShahImgMobile.png";
-import PaulImg from "../../assets/images/Paul.png";
-import PaulImgMobile from "../../assets/images/PaulImgMobile.png";
+import eliasFarhatImg from "../../assets/images/EliasFarhatDesktop.png";
+import eliasFarhatImgMobile from "../../assets/images/EliasFarhatMobileImg.png";
 import DougBergenImg from "../../assets/images/doug.png";
 import DougBergenImgMobile from "../../assets/images/dougImgMobile.png";
 import davidWallaceImg from "../../assets/images/David.png";
@@ -531,38 +531,36 @@ export const TEAM_MEMBERS = [
     },
   },
   {
-    slug: "tapan-paul-patel",
-    name: 'Paul (Tapan) Patel',
-    role: "VP of Operations",
-    image: PaulImg,
-    mobileImage: PaulImgMobile,
-    linkedin: "https://www.linkedin.com/in/tapan-paul-patel-b87186163/",
+    slug: "elias-farhat",
+    name: "Elias Farhat",
+    role: "Portfolio Manager",
+    image: eliasFarhatImg,
+    mobileImage: eliasFarhatImgMobile,
     bio: [
-      'Tapan ("Paul") Patel brings over 15 years of real estate experience in the Greater Houston area, with expertise spanning asset management, finance, construction management, and business operations.',
-      "He has held executive roles in property management and hotel ownership, overseeing portfolio performance, operational strategy, and property-level execution.",
-      "Paul combines technical expertise with a hands-on approach, with a strong focus on repositioning assets and driving value enhancement initiatives across the portfolio.",
-      "He holds an Associate Degree in Mathematics and Graphic Design from Blinn College and a Master's Degree in Interior Architecture from the University of Houston, which he leverages to guide the redesign and restoration of properties.",
+      "Elias Farhat is a Portfolio Manager at IMPEX Capital Group, a Houston-based commercial real estate investment firm with a diversified portfolio valued at over $2.1 billion across the United States.",
+      "In his role, Elias oversees portfolio performance, financial analysis, and asset management activities across multifamily, industrial, and other commercial real estate investments. His responsibilities include monitoring operating performance, evaluating capital expenditures, analyzing financial statements, overseeing budgets and forecasts, and assessing key investment metrics, including net operating income, debt service coverage, and property valuations.",
+      "Elias works closely with property management companies, lenders, loan servicers, and investment partners to identify operational improvements, manage financial risks, and support refinancing and disposition strategies.",
+      "His professional background spans commercial real estate investments, acquisitions, capital markets, and portfolio management, with an emphasis on financial underwriting, investment performance, and long-term value creation.",
     ],
     seo: {
-      title:
-        'Tapan ("Paul") Patel | VP of Operations | Impex Capital Group',
+      title: "Elias Farhat | Portfolio Manager | Impex Capital Group",
       description:
-        'Read the professional profile and biography of Paul (Tapan) Patel, VP of Operations at Impex Capital Group. Learn about their real estate investment expertise and leadership.',
+        "Read the professional profile and biography of Elias Farhat, Portfolio Manager at Impex Capital Group. Learn about their real estate investment expertise and leadership.",
     },
     structuredPersonBio:
-      'Tapan ("Paul") Patel is a real estate and asset management professional at IMPEX Capital Group with 15+ years of experience in operations, repositioning, and value creation.',
+      "Elias Farhat is a Portfolio Manager at IMPEX Capital Group, overseeing portfolio performance, financial analysis, and asset management across multifamily, industrial, and other commercial real estate investments.",
     detail: {
-      heroEyebrow: "Executive Leadership",
-      heroRoleLine: "VP of Operations",
+      heroEyebrow: "Portfolio Management",
+      heroRoleLine: "Portfolio Manager",
       companyLine: "IMPEX Capital Group",
-      educationLine: "15+ Years Experience",
+      educationLine: "Commercial Real Estate Investments & Portfolio Management",
       bioKicker: "EXECUTIVE PROFILE",
-      bioTitle: "Enhancing Asset Value Through Strategic Execution",
+      bioTitle: "Driving Portfolio Performance & Long-Term Investment Value",
       longBio: [
-        'Tapan ("Paul") Patel brings over 15 years of real estate experience in the Greater Houston area, with expertise spanning asset management, finance, construction management, and business operations.',
-        "He has held executive roles in property management and hotel ownership, overseeing portfolio performance, operational strategy, and property-level execution.",
-        "Paul combines technical expertise with a hands-on approach, with a strong focus on repositioning assets and driving value enhancement initiatives across the portfolio.",
-        "He holds an Associate Degree in Mathematics and Graphic Design from Blinn College and a Master's Degree in Interior Architecture from the University of Houston, which he leverages to guide the redesign and restoration of properties.",
+        "Elias Farhat is a Portfolio Manager at IMPEX Capital Group, a Houston-based commercial real estate investment firm with a diversified portfolio valued at over $2.1 billion across the United States.",
+        "In his role, Elias oversees portfolio performance, financial analysis, and asset management activities across multifamily, industrial, and other commercial real estate investments. His responsibilities include monitoring operating performance, evaluating capital expenditures, analyzing financial statements, overseeing budgets and forecasts, and assessing key investment metrics, including net operating income, debt service coverage, and property valuations.",
+        "Elias works closely with property management companies, lenders, loan servicers, and investment partners to identify operational improvements, manage financial risks, and support refinancing and disposition strategies.",
+        "His professional background spans commercial real estate investments, acquisitions, capital markets, and portfolio management, with an emphasis on financial underwriting, investment performance, and long-term value creation.",
       ],
       eduKicker: "RECOGNITION",
       eduTitle: "Experience & Expertise",
@@ -572,10 +570,13 @@ export const TEAM_MEMBERS = [
           iconClass: "fa-solid fa-layer-group",
           heading: "Core Expertise",
           items: [
-            "Asset Management",
-            "Construction & Operations",
-            "Property Repositioning",
-            "Value Enhancement",
+            "Commercial Real Estate Investments",
+            "Portfolio & Asset Management",
+            "Financial Analysis & Underwriting",
+            "Capital Expenditure Evaluation",
+            "Budgeting & Financial Forecasting",
+            "Refinancing & Disposition Strategies",
+            "Investment Performance & Risk Management",
           ],
         },
         {
@@ -583,13 +584,28 @@ export const TEAM_MEMBERS = [
           iconClass: "fa-regular fa-star",
           heading: "Professional Highlights",
           items: [
-            "15+ years of real estate experience",
-            "Experience in hotel ownership & operations",
-            "Strong execution in asset repositioning",
-            "Background in design & architecture",
+            "Portfolio Manager at IMPEX Capital Group",
+            "Experience across multifamily, industrial, and commercial real estate",
+            "Oversees portfolio performance and financial analysis",
+            "Works with property managers, lenders, loan servicers, and investment partners",
+            "Focus on operational improvements and long-term investment value creation",
+          ],
+        },
+        {
+          variant: "list",
+          iconClass: "fa-solid fa-graduation-cap",
+          heading: "Education",
+          items: [
+            "Bachelor of Arts in Economics — Yale University",
+            "Master of Science in Finance (Currently Pursuing) — University of Houston, C. T. Bauer College of Business",
+            "Focus: Corporate Finance, Valuation & Real Estate Investments",
           ],
         },
       ],
+      footerCta: {
+        heading: "Partner With Our Team",
+        text: "For co-investment opportunities, strategic partnerships, or further information about IMPEX Capital Group, please contact our investor relations team.",
+      },
     },
   },
   {

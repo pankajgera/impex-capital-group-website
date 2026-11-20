@@ -270,6 +270,11 @@
   gap: 2.5rem;
 }
 
+/* Odd number of cards: last card spans the full row */
+.nisha-edu-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .nisha-edu-card {
   background: #050505;
   border: 1px solid rgba(212, 175, 55, 0.25);
