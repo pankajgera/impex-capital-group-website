@@ -51,6 +51,12 @@ const Footer = () => {
               Portfolio
             </Link>
             <Link
+              to="/consortium"
+              className={isActive("/consortium") ? "active" : ""}
+            >
+              Consortium
+            </Link>
+            <Link
               to="/insights"
               className={isActive("/insights") ? "active" : ""}
             >

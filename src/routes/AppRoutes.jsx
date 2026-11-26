@@ -17,6 +17,7 @@ const Portfolio = lazy(() => import("../pages/Portfolio/Portfolio"));
 const PropertyDetail = lazy(() => import("../pages/Portfolio/PropertyDetail"));
 const NotFound = lazy(() => import("../pages/NotFound/NotFound"));
 const About = lazy(() => import("../pages/About/About"));
+const Consortium = lazy(() => import("../pages/Consortium/Consortium"));
 
 const Loading = () => (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -34,6 +35,7 @@ const AppRoutes = () => {
                 <Route path="/team/:slug" element={<TeamMemberDetail />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/property/:slug" element={<PropertyDetail />} />
+                <Route path="/consortium" element={<Consortium />} />
                 <Route path="/insights" element={<Insights />} />
                 <Route path="/insights/article/:slug" element={<ArticleDetail />} />
                 <Route path="/contact" element={<Contact />} />
